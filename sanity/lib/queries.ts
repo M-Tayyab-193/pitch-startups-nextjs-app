@@ -44,3 +44,52 @@ export const AUTHOR_BY_GITHUB_ID = defineQuery(`
   *[_type == "author" && id == $id][0]{
   _id, id, name, username, email, image, bio }
   `)  
+
+  export const AUTHOR_BY_ID = defineQuery(`
+  *[_type == "author" && _id == $id][0]{
+  _id, id, name, username, email, image, bio }
+  `)  
+
+  export const STARTUPS_BY_AUTHOR_QUERY = defineQuery(`*[
+  _type == "startup" &&
+  author._ref == $id
+]
+| order(_createdAt desc){
+  _id ,
+    title,
+    slug,
+    description,
+    views,
+    author ->{
+    _id, name, bio, image
+  }, 
+    _createdAt,
+    category, 
+    image
+  
+}`);
+
+export const PLAYLIST_BY_SLUG_QUERY =
+  defineQuery(`*[_type == "playlist" && slug.current == $slug][0]{
+  _id,
+  title,
+  slug,
+  select[]->{
+    _id,
+    _createdAt,
+    title,
+    slug,
+    author->{
+      _id,
+      name,
+      slug,
+      image,
+      bio
+    },
+    views,
+    description,
+    category,
+    image,
+    pitch
+  }
+}`);
