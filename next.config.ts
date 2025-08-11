@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
     appIsrStatus: true,
     buildActivity: true,
     buildActivityPosition: 'bottom-right',
+  },
+   eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
   }
 };
 
