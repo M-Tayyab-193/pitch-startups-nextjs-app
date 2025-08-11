@@ -69,7 +69,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={workSans.variable}>
         {children}
-        <Toaster position="top-right" richColors />
+        <Toaster position="top-right" />
       </body>
     </html>
   );
