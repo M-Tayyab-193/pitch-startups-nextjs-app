@@ -1,10 +1,16 @@
-declare module "next-auth" {
-  interface Session  {
-    id?: string,
-    name?: string;
-  }
-    interface JWT {
-    id?: string,
-    name?: string;
-  }
-}
+
+// declare module "next-auth" {
+//   interface Session  {
+//     id?: string,
+//     user?:{
+//       name?: string;
+//     }
+//   }
+// }
+
+// declare module "next-auth/jwt" {
+//   interface JWT {
+//     id?: string;
+//     name?: string;
+//   }
+// }
